@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+        <meta charset="UTF-8"> 
+        <title>P.WEB-2-Q3</title>   
+        <style>
+            #texto{
+                opacity: 0.0;
+                transition: opacity 2.0s;
+            }
+        </style>
+   </head>
+   <body>          
+        <div id="meu amor"><button id="botao">Carregando cervejas...</button></div>
+        <div id="texto"></div>
+   </body>   
+   <script>
+        let textoTela = false;
+        function carregarDiv(){
+            textoTela= !textoTela
+            let div = document.getElementById("texto")
+            if(textoTela == true){
+                div.style.opacity = 1.0;
+                div.innerHTML = `<h1>Guinness</h1>`
+            }else{
+                div.style.opacity = 0.0;
+                setTimeout(()=> div.innerHTML = '', 2000)
+            } 
+        }
+        let botao = document.getElementById("botao")
+        botao.addEventListener("click", carregarDiv) 
+   </script>
+</html>

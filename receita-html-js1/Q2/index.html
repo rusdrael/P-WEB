@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>   
+    <head>
+        <meta charset="UTF-8">
+        <title>P.WEB-2-Q2</title>        
+    </head>
+    <body>
+        <div id="meu amor"><button id="botao">Carregando cervejas...</button></div>
+        <div id="texto"></div>            
+    </body>   
+    <script>
+        let textoTela = false;
+        function carregarDiv(){
+            textoTela= !textoTela
+            let div = document.getElementById("texto")
+            if(textoTela == true){
+                div.innerHTML = `<h1>Guinness</h1>`
+            }else{
+                div.innerHTML = ''
+            } 
+        }
+        let botao = document.getElementById("botao")
+        botao.addEventListener("click", carregarDiv)                 
+    </script>
+</html>
