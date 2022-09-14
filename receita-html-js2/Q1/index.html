@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>   
+    <head>
+        <meta charset="UTF-8">      
+        <title>P.WEB-3-Q1</title> 
+    </head>
+    <body>
+        <div id="meu amor"><button id="botaoCarregar">Carregando cervejas...</button></div>            
+    </body>   
+    <script>
+        let cervejas = ["Guiness", "Desperados", "Becks"]
+        function transformar(item){
+            return `<div>${item}</div>`
+        }
+        function carregarDiv(){
+            let div = document.getElementById("meu amor")
+            let cervejasHtml = cervejas.map(transformar) 
+            div.innerHTML = `${cervejasHtml.join("\n")}`
+        }
+        let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", carregarDiv)                 
+    </script>
+</html>

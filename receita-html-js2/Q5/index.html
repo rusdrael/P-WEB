@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>   
+    <head>
+        <meta charset="UTF-8">      
+        <title>P.WEB-3-Q5</title>
+        <style>
+            #cervejas, #cervejas td, #cervejas th{
+                font-family: Arial, Verdana, sans-serif;
+                background-color: #ccc;
+                border-collapse: collapse;
+                border: 1px solid #444;
+                padding: 8px 22px;
+            }
+        </style> 
+    </head>
+    <body>
+        <table id="cervejas">
+            <thead>
+                <tr>
+                    <th>Cervejas</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div id="meu amor"><button id="botaoCarregar">Carregando cervejas...</button></div>            
+    </body>   
+    <script>
+        let cervejas = ["Guiness", "Desperados", "Becks"]
+        function transformar(item){
+            return `<tr><td>${item}</td></tr>`
+        }
+        let tbody = document.querySelector("#cervejas tbody");
+        function carregarTabela(){
+            tbody.innerHTML = '';
+            cervejas.sort(() => Math.random() - 0.5).map((transformar) => (tbody.innerHTML += `<tr><td>${transformar}</td></tr>`));
+        }
+        let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", carregarTabela)                 
+    </script>
+</html>
