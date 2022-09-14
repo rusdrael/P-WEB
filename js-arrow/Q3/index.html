@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>   
+    <head>
+        <meta charset="UTF-8">      
+        <title>P.WEB-4-Q3</title>
+        <style>
+            #whiskys, #whiskys td, #whiskys th{
+                font-family: Arial, Verdana, sans-serif;
+                background-color: #ccc;
+                border-collapse: collapse;
+                border: 1px solid #444;
+                padding: 8px 22px;
+            }
+            a.link:visited{
+                color: purple;
+            }
+                a.link:hover{
+                color: black;
+            }
+        </style> 
+    </head>
+    <body>
+        <table id="whiskys">
+            <thead>
+                <tr>
+                    <th>Whiskys</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div id="meu amor">
+            <a id="linkCarregar" target="_self" class="link" href="#" style="text-decoration:none">Carregando whiskys...</a>
+            <a id="linkOrdenar" target="_self" class="link" href="#" style="text-decoration:none">Ordenar whiskys...</a>
+            <a id="linkEmbaralhar" target="_self" class="link" href="#" style="text-decoration:none">Embaralhar whiskys...</a>
+        </div>            
+    </body>   
+    <script>
+        let whiskys = ["Laphroaig 10 Anos", "Macallan 12 anos", "Bruichladdich Port Charlotte 10 anos"]
+        tbody = document.querySelector("#whiskys tbody");
+        const carregarTabela = (whisk) => {
+            tbody.innerHTML = '';
+            whisk
+                .map((item) => {tbody.innerHTML += `<tr><td>${item}</td></tr>`})
+        }
+        const carregarTabelaOrd = (whisk) => {
+            tbody.innerHTML = '';
+            whisk
+                .sort()
+                .map((item) => {tbody.innerHTML += `<tr><td>${item}</td></tr>`})
+        }
+        const carregarTabelaEmb = (whisk) => {
+            tbody.innerHTML = '';
+            whisk
+                .sort(() => Math.random() - 0.5)
+                .map((item) => {tbody.innerHTML += `<tr><td>${item}</td></tr>`})
+        }
+        let link = document.getElementById("linkCarregar")
+        let linkOrd = document.getElementById("linkOrdenar")
+        let linkEmb = document.getElementById("linkEmbaralhar")
+        link.addEventListener("click", () => carregarTabela(whiskys))   
+        linkOrd.addEventListener("click", () => carregarTabelaOrd(whiskys))
+        linkEmb.addEventListener("click", () => carregarTabelaEmb(whiskys))                
+    </script>
+</html>

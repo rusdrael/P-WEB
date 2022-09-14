@@ -1,0 +1,19 @@
+div.poeta{
+    text-align: center;
+    margin: 0 auto;
+}
+div.poeta img{
+    border-radius: 50%;
+}
+p.verso{
+    color: blue;
+}
+p.mote{
+    color: red;
+}
+a.link:visited{
+    color: purple;
+}
+a.link:hover{
+    color: black;
+}
