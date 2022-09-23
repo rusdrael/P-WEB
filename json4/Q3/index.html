@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>   
+    <head>
+        <meta charset="UTF-8">
+        <title>P.WEB-5-Q3</title>   
+        <style>
+            #cervejas, #cervejas td, #cervejas th{
+                font-family: Arial, Verdana, sans-serif;
+                background-color: #ccc;
+                border-collapse: collapse;
+                border: 1px solid #444;
+                padding: 8px 22px;
+            }
+        </style> 
+    </head>
+    <body>
+        <table id="cervejas">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Álcool</th>
+                    <th>Estilo</th>
+                    <th>Amargor</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+        <div id="cervejasDiv"></div>            
+    </body>   
+    <script>
+        let cervejas = [
+            {
+                name: "Guiness", 
+                alcohol: "10%",
+                style: "Cream Ale",
+                ibu: "20"            
+            }, 
+            {
+                name: "Desperados",
+                alcohol: "6%",  
+                style: "Larger",
+                ibu: "40"           
+            }, 
+            {
+                name: "Becks",
+                alcohol: "5%",
+                style: "Pilsen",
+                ibu: "60"               
+            }
+        ]
+        tbody = document.querySelector("#cervejas tbody")
+        //cs é um array de cervejas
+        const carregarTabela = cs => {
+            tbody.innerHTML = '';
+            cs
+                .map((item) => {tbody.innerHTML += `<tr><td>${item['name']}</td> <td>${item['alcohol']}</td> <td>${item['style']}</td> <td>${item['ibu']}</td></tr>`})
+        }
+        let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", () => carregarTabela(cervejas) )                 
+    </script>
+</html>

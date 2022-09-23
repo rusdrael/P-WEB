@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>   
+    <head>
+        <meta charset="UTF-8">
+        <title>P.WEB-5-Q5</title>   
+        <style>
+            #cervejas, #cervejas td, #cervejas th{
+                font-family: Arial, Verdana, sans-serif;
+                background-color: #ccc;
+                border-collapse: collapse;
+                border: 1px solid #444;
+                padding: 8px 22px;
+            }
+        </style> 
+    </head>
+    <body>
+        <table id="cervejas">
+            <thead>
+                <tr id="thead">
+                </tr>
+            </thead>
+            <tbody id="cervejasTabela">
+            </tbody>
+        </table>
+        <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+        <div id="cervejasDiv"></div>            
+    </body>   
+    <script>
+        let cervejas = [
+            {
+                name: "Guiness", 
+                alcohol: "10%",
+                style: "Cream Ale",
+                ibu: "20"            
+            }, 
+            {
+                name: "Desperados",
+                alcohol: "6%",  
+                style: "Larger",
+                ibu: "40"           
+            }, 
+            {
+                name: "Becks",
+                alcohol: "5%",
+                style: "Pilsen",
+                ibu: "60"               
+            }
+        ]
+        //cs é um array de cervejas
+        const carregarTabela = (itens,id="cervejasTabela",cs) => {
+            let tbody = document.querySelector(`#${id}`)
+            let thead = document.querySelector(`#${id}`)
+            thead.innerHTML = '';
+            tbody.innerHTML = '';
+            let itensArray = itens
+                .map((item) => `<th>${item}</th>`)
+            const itensTag = `<tr>${itensArray.join('')}</tr>`
+            thead.innerHTML = itensTag;
+            cs
+                .map((item) => {tbody.innerHTML += `<tr><td>${item['name']}</td> <td>${item['alcohol']}</td> <td>${item['style']}</td> <td>${item['ibu']}</td></tr>`})
+        }
+        let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", () => carregarTabela(["Nome", "Álcool", "Estilo", "Amargor"],'cervejasTabela', cervejas) )                 
+    </script>
+</html>

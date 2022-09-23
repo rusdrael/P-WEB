@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>   
+    <head>
+        <meta charset="UTF-8">
+        <title>P.WEB-5-Q1</title>   
+    </head>
+    <body>
+        <table id="cervejas">
+            <thead>
+                <tr>
+                    <th>Cervejas</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+        <div id="cervejasDiv"></div>            
+    </body>   
+    <script>
+        let cervejas = [
+            {
+                name: "Guiness", 
+                alcohol: "10%"            
+            }, 
+            {
+                name: "Desperados",
+                alcohol: "6%"             
+            }, 
+            {
+                name: "Becks",
+                alcohol: "5%"             
+            }
+        ]
+        tbody = document.querySelector("#cervejas tbody")
+        //cs é um array de cervejas
+        const carregarTabela = cs => {
+            tbody.innerHTML = '';
+            cs
+                .map((item) => {tbody.innerHTML += `<tr><td>${item['name']} -- ${item['alcohol']}</td></tr>`})
+        }
+        let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", () => carregarTabela(cervejas) )                 
+    </script>
+</html>
