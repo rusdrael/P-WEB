@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>P.WEB-8-Q4</title>      
+    </head>
+    <body>
+        <div id="app">      
+        </div>
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="./babel.js"></script>
+        <script type="text/babel">
+            let whiskys = [
+            {
+                distillery: "Laphroaig", 
+                alcohol: "43%",
+                style: "Single malt scotch",
+                age: "10 anos"            
+            }, 
+            {
+                distillery: "Macallan",
+                alcohol: "40%",  
+                style: "Single malt scotch",
+                age: "12 anos"           
+            }, 
+            {
+                distillery: "Lagavulin ",
+                alcohol: "40%",
+                style: "Single malt scotch",
+                age: "16 Anos"               
+            }
+        ]
+            function TabelaBebidas(){
+                return(
+                    <div id="app">
+                    <table id="tabela" border="1">
+                        <thead>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                )
+            }    
+            function Cabecalho(){
+                return(
+                    <h1>Minha tabela de bebidas</h1> 
+                )
+            } 
+            const carregarTabela = (itens, ws) => {
+                let thead = document.querySelector("#tabela thead");
+                thead.innerHTML = '';
+                let tbody = document.querySelector("#tabela tbody");
+                tbody.innerHTML = '';
+                let itensArray = itens
+                    .map((item) => `<th>${item}</th>`)
+                const itensTag = `<tr>${itensArray.join('')}</tr>`
+                thead.innerHTML = itensTag;
+                ws.map((item) =>  {tbody.innerHTML += `<tr><td>${item['distillery']}</td> <td>${item['alcohol']}</td> <td>${item['style']}</td> <td>${item['age']}</td></tr>`}) 
+            }
+            ReactDOM.render(
+                <div>
+                    <Cabecalho/>
+                    <button onClick={() => carregarTabela(["Destilaria", "Álcool", "Estilo", "Idade"], whiskys)} id="botaoCarregar">Carregando whiskys...</button>
+                    <TabelaBebidas/>
+                </div>
+                ,
+                document.getElementById("app"))
+        </script>
+</body>
+</html>

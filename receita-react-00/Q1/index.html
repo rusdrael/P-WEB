@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>P.WEB-7-Q1</title>      
+    </head>
+    <body>
+        <div id="app">
+        </div>
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script>
+            ReactDOM.render(
+                React.createElement(
+                    'table',
+                    {id: 'my-heading' ,border: 1},
+                    React.createElement(
+                        'thead',
+                        null,
+                        React.createElement(
+                            'th',
+                            null,    
+                            React.createElement('tr', null, '1'),
+                        ),
+                    ),
+                    React.createElement(
+                        'tbody',
+                        null,
+                        React.createElement(
+                            'th',
+                            null,
+                            React.createElement('tr', null, '2'),
+                        ),
+                    ),
+                ),
+            document.getElementById("app"))
+        </script>
+    </body>
+</html>
