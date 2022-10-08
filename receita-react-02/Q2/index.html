@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>P.WEB-9-Q2</title> 
+        <style>
+            #app div{
+                text-align: center;
+                margin: 0;
+            }
+            #tabela, #tabela td, #tabela th{
+                font-family: Arial, Verdana, sans-serif;
+                background-color: #ccc;
+                border-collapse: collapse;
+                border: 1px solid #444;
+                padding: 8px 22px;
+            }
+            p {
+                text-indent: 40px;
+            }
+            a.link:visited{
+                color: purple;
+            }
+            a.link:hover{
+                color: black;
+            }
+        </style>          
+    </head>
+    <body>
+        <div id="app">
+        </div>
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="./babel.js"></script>
+        <script type="text/babel">
+            class TabelaBebidas extends React.Component{
+                render(){
+                    return (
+                        <div>
+                            <h1>{this.props.titulo}</h1>
+                            <table id="tabela" border="1" align="center">
+                                <thead>
+                                    <tr>
+                                        <th>Destilaria</th>
+                                        <th>Álcool</th>
+                                        <th>Estilo</th>
+                                        <th>Idade</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Laphroaig</td>
+                                        <td>43%</td>
+                                        <td>Single malt scotch</td>
+                                        <td>10 Anos</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Macallan</td>
+                                        <td>40%</td>
+                                        <td>Single malt scotch</td>
+                                        <td>12 Anos</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lagavulin</td>
+                                        <td>40%</td>
+                                        <td>Single malt scotch</td>
+                                        <td>16 Anos</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div> 
+                    )
+                }
+            }
+            class Whisky extends React.Component {
+                render() {
+                    return (
+                        <div>
+                            <h2>O QUE É UM SINGLE MALT?</h2>
+                            <p>
+                                O whisky single malt é um whisky que é produzido a partir de uma mistura de grãos<br/>
+                                maltados e é destilado num único local. Normalmente, os single malts utilizam a cevada e<br/>
+                                estão tipicamente associados à Escócia e aos uísques escoceses.
+                            </p>
+                            <a target="_blank" class="link" href="https://etilicos.com/tudo-que-voce-precisa-saber-sobre-whisky-single-malt/">Referência</a>
+                        </div>
+                    );
+                }
+            }
+            ReactDOM.render(
+                <div>
+                    <TabelaBebidas titulo="Tabela de Bebidas"/>
+                    <Whisky/>
+                </div>
+                ,
+                document.getElementById("app"))
+        </script>
+    </body>
+</html>
