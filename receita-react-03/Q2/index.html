@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>P.WEB-10-Q2</title> 
+        <style>
+            #app div{
+                text-align: center;
+                margin: 0;
+            }
+            #tabela, #tabela td, #tabela th{
+                font-family: Arial, Verdana, sans-serif;
+                background-color: #ccc;
+                border-collapse: collapse;
+                border: 1px solid #444;
+                padding: 8px 22px;
+            }
+        </style>      
+    </head>
+    <body>
+        <div id="app">
+        </div>
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="./babel.js"></script>
+        <script type="text/babel">
+            const TabelaBebidas = ({titulo,cabecalhos, corpo}) => {
+                return (
+                    <div>
+                        <h1>{titulo}</h1>
+                        <table id="tabela" border="1" align="center">
+                            <thead>
+                                <tr>
+                                    {cabecalhos.map(item => (<th key={item}>{item}</th>))}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {corpo.map((linha, index) => 
+                                    <tr key={index}>
+                                        {linha.map((item, index) => (
+                                            <td key={index}>{item}</td>
+                                        ))}
+                                    </tr>
+                                )}
+                            </tbody>
+                        </table>
+                    </div>
+                )  
+            }
+            const valoresCabecalhos = ['Nome', 'Marca']
+            const valoresCorpo = [['Havana', 'Engenho Anísio Santiago'], ['Caraçuípe Extra Premium', 'Engenho Caraçuípe']]
+            ReactDOM.render(
+                <TabelaBebidas titulo="Minha tabela de cana" cabecalhos={ valoresCabecalhos } corpo={ valoresCorpo }/>
+                ,
+                document.getElementById("app"))
+        </script>
+    </body>
+</html>
