@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>P.WEB-10-Q1</title>     
+        <style>
+            #app div{
+                text-align: center;
+                margin: 0;
+            }
+            #tabela, #tabela td, #tabela th{
+                font-family: Arial, Verdana, sans-serif;
+                background-color: #ccc;
+                border-collapse: collapse;
+                border: 1px solid #444;
+                padding: 8px 22px;
+            }
+        </style>  
+    </head>
+    <body>
+        <div id="app">
+        </div>
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="./babel.js"></script>
+        <script type="text/babel">
+            const TabelaBebidas = ({titulo,cabecalhos}) => {
+                return (
+                    <div>
+                        <h1>{titulo}</h1>
+                        <table id="tabela" border="1" align="center">
+                            <thead>
+                                <tr>
+                                    {cabecalhos.map(item => (<th key={item}>{item}</th>))}
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                )  
+            }
+            const valoresCabecalhos = ['Nome', 'Marca']
+            ReactDOM.render(
+                <TabelaBebidas titulo="minha tabela de cana" cabecalhos={ valoresCabecalhos }/>
+                ,
+                document.getElementById("app"))
+        </script>
+    </body>
+</html>
